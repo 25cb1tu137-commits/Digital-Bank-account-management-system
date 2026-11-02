@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampusTrust Bank</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Login / Register screen -->
+  <main id="auth-screen" class="auth" hidden>
+    <section class="auth-box">
+      <h1 class="brand">CampusTrust Bank</h1>
+      <p class="muted">Demo banking app for a college project. No real money.</p>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="login" type="button">Log in</button>
+        <button class="tab" data-tab="register" type="button">Open an account</button>
+      </div>
+
+      <form id="login-form" class="form">
+        <label>Mobile number <input name="phone" type="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10-digit mobile number" autocomplete="username" required></label>
+        <label>Password <input name="password" type="password" autocomplete="current-password" required></label>
+        <p class="error" role="alert"></p>
+        <button class="btn" type="submit">Log in</button>
+        <p class="hint">Demo login: <b>9876500001</b> / <b>Demo@1234</b></p>
+      </form>
+
+      <form id="register-form" class="form" hidden>
+        <label>Full name <input name="name" required minlength="2" maxlength="60" autocomplete="name"></label>
+        <label>Mobile number <input name="phone" type="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10-digit mobile number" required autocomplete="tel-national"></label>
+        <span class="hint">You will use this number to log in.</span>
+        <label>Password <input name="password" type="password" required minlength="8" autocomplete="new-password"></label>
+        <span class="hint">At least 8 characters, with letters and numbers.</span>
+        <label>Opening deposit in ₹ (optional) <input name="openingDeposit" inputmode="decimal" placeholder="0.00"></label>
+        <p class="error" role="alert"></p>
+        <button class="btn" type="submit">Create account</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Dashboard shell -->
+  <div id="app" class="shell" hidden>
+    <aside class="sidebar">
+      <div class="brand">CampusTrust Bank</div>
+      <nav id="nav">
+        <a href="#overview">Overview</a>
+        <a href="#transfer">Transfer money</a>
+        <a href="#cash">Deposit &amp; withdraw</a>
+        <a href="#history">Transactions</a>
+        <a href="#statement">Statement</a>
+        <a href="#profile">Profile</a>
+      </nav>
+      <button id="logout" class="logout" type="button">Log out</button>
+    </aside>
+    <main class="content">
+      <header class="topbar"><span id="greeting"></span></header>
+      <div id="view"></div>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

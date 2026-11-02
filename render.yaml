@@ -1,0 +1,17 @@
+# Render "Blueprint": lets you deploy by connecting your GitHub repo.
+services:
+  - type: web
+    name: campustrust-bank
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: JWT_SECRET
+        generateValue: true      # Render creates a random secret for you
+      - key: SEED_DEMO
+        value: "true"            # loads demo users when the database is empty
+      - key: DB_PATH
+        value: ./data/bank.db    # on a paid plan with a disk, use /var/data/bank.db
