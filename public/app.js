@@ -208,7 +208,7 @@ const pages = {
             <td class="num debit">${credit(t) ? '' : money(t.amount)}</td><td class="num credit">${credit(t) ? money(t.amount) : ''}</td>
             <td class="num">${money(t.balance_after)}</td></tr>`).join('')}</tbody></table></div>`
           : '<p class="empty">No transactions in this period.</p>'}
-        <p class="muted st-foot">Computer-generated statement from a demo project. No real money is involved.</p>`;
+        
       $('#st-csv').disabled = $('#st-print').disabled = false;
     };
 
